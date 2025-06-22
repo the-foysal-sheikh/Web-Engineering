@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marriage Biodata Form</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #ffefba, #ffffff);
+      padding: 40px;
+      margin: 0;
+    }
+    form {
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      max-width: 600px;
+      margin: auto;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #a51c30;
+      margin-bottom: 20px;
+    }
+    label {
+      font-weight: 600;
+      margin-top: 10px;
+      display: block;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      box-sizing: border-box;
+      transition: border 0.3s ease;
+    }
+    input:focus, select:focus, textarea:focus {
+      border: 1px solid #a51c30;
+      outline: none;
+    }
+    .error {
+      color: red;
+      font-size: 0.85em;
+      margin-top: -10px;
+      margin-bottom: 10px;
+    }
+    button {
+      background: #a51c30;
+      color: #fff;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      display: block;
+      width: 100%;
+    }
+    button:hover {
+      background: #861421;
+    }
+  </style>
+</head>
+<body>
+
+  <form id="biodataForm">
+    <h2>Marriage Biodata Form</h2>
+
+    <label for="fullname">Full Name</label>
+    <input type="text" id="fullname" name="fullname" required>
+    <div class="error" id="nameError"></div>
+
+    <label for="fathername">Father's Name</label>
+    <input type="text" id="fathername" name="fathername" required>
+
+    <label for="mothername">Mother's Name</label>
+    <input type="text" id="mothername" name="mothername" required>
+
+    <label for="dob">Date of Birth</label>
+    <input type="date" id="dob" name="dob" required>
+
+    <label for="gender">Gender</label>
+    <select id="gender" name="gender" required>
+      <option value="">Select</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="Other">Other</option>
+    </select>
+
+    <label for="religion">Religion</label>
+    <input type="text" id="religion" name="religion" required>
+
+    <label for="education">Education</label>
+    <input type="text" id="education" name="education" required>
+
+    <label for="profession">Profession</label>
+    <input type="text" id="profession" name="profession" required>
+
+    <label for="height">Height (in cm)</label>
+    <input type="number" id="height" name="height" required>
+
+    <label for="hobbies">Hobbies</label>
+    <input type="text" id="hobbies" name="hobbies" placeholder="e.g., Reading, Traveling, Music" required>
+
+    <label for="contact">Contact Number</label>
+    <input type="tel" id="contact" name="contact" required pattern="[0-9]{11}">
+
+    <label for="address">Address</label>
+    <textarea id="address" name="address" rows="4" required></textarea>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    document.getElementById("biodataForm").addEventListener("submit", function(event) {
+      let name = document.getElementById("fullname").value;
+      let nameError = document.getElementById("nameError");
+      nameError.textContent = "";
+
+      if (name.trim().length < 3) {
+        nameError.textContent = "Name must be at least 3 characters long.";
+        event.preventDefault();
+      }
+    });
+  </script>
+
+</body>
+</html>
